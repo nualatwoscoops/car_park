@@ -65,19 +65,19 @@ This guide provides detailed step-by-step instructions for completing the projec
 **Additional evidencing:**
 Include a screenshot of your GitHub repository **after** you have pushed your initial commit.
 
-```markdown
-![Initial commit](images/mu_image.png)
+```
+![Initial Commit](images/initial_commit.png)
 ```
 
 ### Identify classes, methods, and attributes
 
 After reading the task requirements, you should be able to identify the classes, methods, and attributes required for the car park system. Complete the following table with the classes, methods, and attributes you must implement.
 
-| Class Name | Attributes                                                | Methods                                                 |
-| ---------- |-----------------------------------------------------------|---------------------------------------------------------|
-| `CarPark`    |  |
-| `Sensor`     |                                                           |                                                         |
-| `Display`    |                                                           |                                                         |
+| Class Name | Attributes                                    | Methods                           |
+| ---------- |-----------------------------------------------|-----------------------------------|
+| `CarPark`    | location, capactity, plates, sensors, display | add_plate, remove_plate, displays 
+| `Sensor`     | id, is_active, car_park                       | activate, deactivate,             |
+| `Display`    | id, message, is_on, car_park                  | turn_on, turn_off, update_message  |
 
 **Additional evidencing:**
 Ensure you have completed the previous table and include at least two methods and attributes for each.
@@ -106,7 +106,7 @@ Ensure you have completed the previous table and include at least two methods an
 Include a screenshot of your GitHub repository `src/` directory **after** you have pushed your changes.
 
 ```markdown
-![Added stubs for classes](images/stubs-for-classes.png)
+![Added stubs for classes](images/stubs.png)
 ```
 
 ### Add constructors and attributes to the classes
