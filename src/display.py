@@ -1,9 +1,3 @@
-from email import message
-
-
-class CarPark:
-    pass
-
 class Display:
     def __init__(self, id, car_park, message="Welcome to the car park.", is_on=False):
         self.id = id
@@ -14,5 +8,12 @@ class Display:
     def __str__(self):
         return f"{self.id}: Display {"is on" if self.is_on else 'is off'}"
 
+    def update(self, data):
+        print(f"Display {self.id}: update received:")
+        for key, value in data.items():
+            print(f"{key}: {value}")
+
+
 d1 = Display(1, None)
 print(d1)
+d1.update({"available_bays": 10, "temperature": 22})
