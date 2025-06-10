@@ -66,7 +66,7 @@ This guide provides detailed step-by-step instructions for completing the projec
 Include a screenshot of your GitHub repository **after** you have pushed your initial commit.
 
 ```
-![Initial Commit](images/initial_commit.png)
+![initial_commit.png](images/initial_commit.png)
 ```
 
 ### Identify classes, methods, and attributes
@@ -106,7 +106,7 @@ Ensure you have completed the previous table and include at least two methods an
 Include a screenshot of your GitHub repository `src/` directory **after** you have pushed your changes.
 
 ```markdown
-![Added stubs for classes](images/stubs.png)
+![stubs.png](images/stubs.png)
 ```
 
 ### Add constructors and attributes to the classes
@@ -208,10 +208,12 @@ You realize that you need a way to configure the car park system. You decide to 
 Ensure that you have completed the previous steps and created the appropriate tags. Confirm that the tags have been created by running `git tag` in the terminal and provide a screenshot of the output.
 
 ```bash
-[student@workstation ipriot-car-park-prj]$ git tag
+[student@workstation ipriot-car-park-prj]$ git tag![tags.png](images/tags.png)
 s1
 s2
 ```
+
+![img.png](img.png)
 
 ### Relate the classes
 

@@ -12,7 +12,7 @@ class Display:
         self.car_park = car_park
 
     def __str__(self):
-        return f"{self.id}: Display is {"is on" if self.is_on else 'is off'}"
+        return f"{self.id}: Display {"is on" if self.is_on else 'is off'}"
 
 d1 = Display(1, None)
 print(d1)
