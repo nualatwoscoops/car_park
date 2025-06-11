@@ -2,19 +2,16 @@ from sensor import Sensor
 from display import Display
 
 class CarPark:
-    pass
-
-    def __init__(self, location="unknown", capacity=0, plates=None, sensors=None, displays=None):
+    def __init__(self, location="unknown", capacity=0, plates=None, sensors=None, displays=None, temperature=25):
         self.location = location
         self.capacity = capacity
         self.plates = plates or []
         self.sensors = sensors or []
         self.displays = displays or []
+        self.temperature = temperature
 
     def __str__(self):
         return f"Welcome to {self.location} car park. {self.capacity} bays are available."
-
-
 
     def register(self, component):
         "Registers components of a car park."
@@ -35,7 +32,7 @@ class CarPark:
 
     def update_displays(self):
         for display in self.displays:
-            display.update(data = {"available_bays": self.available_bays, "temperature": 25,})
+            display.update(data = {"available_bays": self.available_bays, "temperature": self.temperature})
             print(f"Updating: {display}")
 
     @property

@@ -1,8 +1,11 @@
+from abc import ABC, abstractmethod
+
+import random
+
 class CarPark:
     pass
 
-
-class Sensor:
+class Sensor(ABC):
     """Provides sensors to detect cars"""
     def __init__(self, id, car_park=None, is_active=False):
         self.id = id
@@ -13,13 +16,23 @@ class Sensor:
         status = "is active" if self.is_active else "not active"
         return f"{self.id}: Sensor {status}"
 
+    @abstractmethod
+    def update_car_park(self, plate):
+        pass
+
+    def _scan_plate(self):
+        return random.choice(self.car_park.plates)
+
+    def detect_vehicle(self):
+        plate = self._scan_plate()
+        self.update_car_park(plate)
+
 class EntrySensor(Sensor):
-    pass
+    def update_car_park(self, plate):
+       self.car_park.add_car(plate)
+       print(f"Incoming 🚘 vehicle detected. Plate: {plate}")
 
 class ExitSensor(Sensor):
-    pass
-
-s1 = EntrySensor(1, None, True)
-print(s1)
-S2 = ExitSensor(2, None, False)
-print(S2)
+    def update_car_park(self, plate):
+       self.car_park.remove_car(plate)
+       print(f"Outgoing 🚗 vehicle detected. Plate: {plate}")

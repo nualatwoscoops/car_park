@@ -1,12 +1,12 @@
 class Display:
-    def __init__(self, id, car_park, message="Welcome to the car park.", is_on=False):
+    def __init__(self, id, car_park=None, message="Welcome to the car park.", is_on=True):
         self.id = id
         self.message = message
         self.is_on = is_on
         self.car_park = car_park
 
     def __str__(self):
-        return f"{self.id}: Display {"is on" if self.is_on else 'is off'}"
+        return f"{self.id}: Display {'is on' if self.is_on else 'is off'}"
 
     def update(self, data):
         print(f"Display {self.id}: update received:")

@@ -376,7 +376,7 @@ Now consider, between the `CarPark`, `Sensor`, and `Display` classes, which clas
 >Q. Which class is responsible for the current temperature (and why)?
 > The sensor because it gets readings but car park and display dont. 
 >Q. Which class is responsible for the time (and why)?
-> ??????
+> The car park class since it hols all the actions related to cars (eg when they enter and exit) Display only shows the time and displays what it is told to display but car park decides when things happen. 
 --------
 
 ##### Detour: implement available bays
@@ -456,14 +456,14 @@ Answer the following questions:
 >
 > 1. **Which class is responsible for each of the following pieces of information (and why)?**
 >    - _The number of available bays_
->      `Answer here...`
+>      Car park because it gathers data on the capacity and keeps a list of plates so it can make this calculation.  
 >    - _The current temperature_
->      `Answer here...`
+>      Car park because it manages all the data to put on display
 >    - _The time_
->      `Answer here...`
+>      Car park because it holds the time and then display displays it. 
 >
 > 2. **What is the difference between an attribute and a property?**
->    `Answer here...`
+>    - 
 >
 > 3. **Why do you think we used a dictionary to hold the data we passed the display? List at least one advantage and one disadvantage of this approach.**
 >    `Answer here...`
