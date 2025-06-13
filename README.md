@@ -458,15 +458,18 @@ Answer the following questions:
 >    - _The number of available bays_
 >      Car park because it gathers data on the capacity and keeps a list of plates so it can make this calculation.  
 >    - _The current temperature_
->      Car park because it manages all the data to put on display
+>      Car park because it 
 >    - _The time_
->      Car park because it holds the time and then display displays it. 
+>      `Answer here...`
 >
 > 2. **What is the difference between an attribute and a property?**
->    - 
->
+>    The variables belonging to an object are called attributes and these attributes are defined within the class of the object.
+>    The properties are methods that change the values of attributes - using the @property decorator.  https://www.tutorialspoint.com/What-is-the-difference-between-attributes-and-properties-in-python
+> 
 > 3. **Why do you think we used a dictionary to hold the data we passed the display? List at least one advantage and one disadvantage of this approach.**
->    `Answer here...`
+>    Because dictionaries are mutable so several pieces of information can be held together and be added to or updated in a dynamic way. 
+>     This would be an advantage. 
+>     A disadvantage is that since theyare flexible the data might return errors unless the values and keys are very controlled. 
 
 #### Add a detect vehicle method to the Sensor class
 
@@ -769,7 +772,8 @@ Next, we'll create tests for the `Display` class. These tests will test the `__i
 1. Add a screenshot of the output of the unit tests. If any failed, add a screenshot of the error message and a screenshot after you have fixed the errors:
 
    ```markdown
-   ![Unit tests](images/unit-tests-display.png)
+   (![display_unit_test_failed.png](images/display_unit_test_failed.png)
+   ![display_unit_test_success.png](images/display_unit_test_success.png)
    ```
 
 2. Commit your changes to the local repository. Tag the commit with `s7` so your lecturer can find it.

@@ -6,13 +6,14 @@ class Display:
         self.car_park = car_park
 
     def __str__(self):
-        return f"{self.id}: Display {'is on' if self.is_on else 'is off'}"
+        return f"Display {self.id} {'is on' if self.is_on else 'is off'}"
 
     def update(self, data):
-        print(f"Display {self.id}: update received:")
+        print(f"\nDisplay {self.id} update received:")
         for key, value in data.items():
             print(f"{key}: {value}")
-
+        if "message" in data:
+            self.message = data["message"]
 
 d1 = Display(1, None)
 print(d1)
