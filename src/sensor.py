@@ -3,7 +3,15 @@ from abc import ABC, abstractmethod
 import random
 
 class CarPark:
-    pass
+    def _init_(self):
+        self.plates = []
+
+    def add(self, plate):
+        self.plates.append(plate)
+
+    def remove_car(self, plate):
+        if plate in self.plates:
+            self.plates.remove(plate)
 
 class Sensor(ABC):
     """Provides sensors to detect cars"""
@@ -20,9 +28,6 @@ class Sensor(ABC):
     def update_car_park(self, plate):
         pass
 
-    def _scan_plate(self):
-        return random.choice(self.car_park.plates)
-
     def detect_vehicle(self):
         plate = self._scan_plate()
         self.update_car_park(plate)
@@ -33,6 +38,10 @@ class EntrySensor(Sensor):
        print(f"Incoming 🚘 vehicle detected. Plate: {plate}")
 
 class ExitSensor(Sensor):
+
+    def _scan_plate(self):
+        return random.choice(self.car_park.plates)
+
     def update_car_park(self, plate):
        self.car_park.remove_car(plate)
        print(f"Outgoing 🚗 vehicle detected. Plate: {plate}")

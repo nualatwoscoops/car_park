@@ -17,4 +17,4 @@ class Display:
 
 d1 = Display(1, None)
 print(d1)
-d1.update({"available_bays": 10, "temperature": 22})
+d1.update({"\nAvailable Bays": 10, "Temperature": 22})
