@@ -1,10 +1,11 @@
+import json
 from sensor import Sensor
 from display import Display
 from pathlib import Path
 from datetime import datetime
 
 class CarPark:
-    def __init__(self, location="unknown", capacity=0, plates=None, sensors=None, displays=None, temperature=25, log_file=Path("log.txt")):
+    def __init__(self, location="unknown", capacity=0, plates=None, sensors=None, displays=None, temperature=25, log_file=Path("log.txt"), config_file=Path("config.json")):
         self.location = location
         self.capacity = capacity
         self.plates = plates or []
@@ -13,6 +14,7 @@ class CarPark:
         self.temperature = temperature
         self.log_file = log_file if isinstance(log_file, Path) else Path(log_file)
         self.log_file.touch(exist_ok=True)
+        self.config_file = Path(config_file)
 
     def __str__(self):
         return f"Welcome to {self.location} car park. {self.capacity} bays are available."
@@ -53,4 +55,31 @@ class CarPark:
             return 0
         else:
             return calculated_available_bays
+
+    def write_config(self):
+        config_data = {
+            "location": self.location,
+            "capacity": self.capacity,
+            "log_file": str(self.log_file),
+            "plates": self.plates,
+            "sensors": self.sensors,
+            "displays": self.displays,
+        }
+        with self.config_file.open("w") as f:
+            json.dump(config_data, f)
+
+    @classmethod
+    def from_config(cls, config_file=Path("config.json")):
+        config_file = config_file if isinstance(config_file, Path) else Path(config_file)
+        with config_file.open() as f:
+            config = json.load(f)
+        return cls(
+            location=config["location"],
+            capacity=config["capacity"],
+            plates=config.get("plates", []),
+            sensors=config.get("sensors", []),
+            displays=config.get("displays", []),
+            log_file=config.get("log_file", "log.txt"),
+            config_file=config_file
+        )
 
