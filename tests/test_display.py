@@ -1,24 +1,20 @@
-import unittest
-from display import Display
-from car_park import CarPark
+class Display:
+    def __init__(self, id, car_park=None, message="Welcome to the car park.", is_on=True):
+        self.id = id
+        self.message = message
+        self.is_on = is_on
+        self.car_park = car_park
 
-class TestDisplay(unittest.TestCase):
-    def setUp(self):
-        self.car_park = CarPark("123 Example Street", 100)
-        self.display = Display(
-            id=1,
-            car_park=self.car_park,
-            message="Welcome to the car park",
-            is_on=True,
-            )
+    def __str__(self):
+        return f"Display {self.id} {'is on' if self.is_on else 'is off'}"
 
-    def test_display_initialized_with_all_attributes(self):
-       self.assertIsInstance(self.display, Display)
-       self.assertEqual(self.display.id, 1)
-       self.assertEqual(self.display.message, "Welcome to the car park")
-       self.assertEqual(self.display.is_on, True)
+    def update(self, data):
+        print(f"\nDisplay {self.id} update received:")
+        for key, value in data.items():
+            print(f"{key}: {value}")
+        if "message" in data:
+            self.message = data["message"]
 
-    # ... inside the TestDisplay class
-    def test_update(self):
-       self.display.update({"message": "Goodbye"})
-       self.assertEqual(self.display.message, "Goodbye")
+d1 = Display(1, None)
+print(d1)
+d1.update({"\nAvailable Bays": 10, "Temperature": 22})

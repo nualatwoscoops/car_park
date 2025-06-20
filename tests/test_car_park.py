@@ -48,14 +48,6 @@ class TestCarPark(unittest.TestCase):
         with self.assertRaises(TypeError):
             self.car_park.register("Not a Sensor or Display")
 
-    def test_log_file_created(self):
-        new_carpark = CarPark ("123 Example Street", 100, log_file=self.new_log)
-        new_carpark.add_car("Test-001")
-        self.assertTrue(Path(self.new_log).exists())
-
-    def tearDown(self):
-        Path(self.new_log).unlink(missing_ok=True)
-
     def test_car_logged_when_entering(self):
         new_carpark = CarPark("123 Example Street", 100, log_file = "new_log.txt") # TODO: change this to use a class attribute or new instance variable
         self.car_park.add_car("NEW-001")
@@ -74,6 +66,14 @@ class TestCarPark(unittest.TestCase):
             self.assertIn("NEW-001", last_line) # check plate entered
             self.assertIn("exited", last_line) # check description
             self.assertIn("\n", last_line) # check entry has a new line
+
+    def test_log_file_created(self):
+        new_carpark = CarPark ("123 Example Street", 100, log_file=self.new_log)
+        new_carpark.add_car("Test-001")
+        self.assertTrue(Path(self.new_log).exists())
+
+    def tearDown(self):
+        Path(self.new_log).unlink(missing_ok=True)
 
 if __name__ == "__main__":
      unittest.main()
